@@ -111,10 +111,15 @@ COPY file/munge.key  /etc/munge/munge.key
 
 #START THE SERVICES
 
-CMD ["/run.sh"]
+#CMD ["/run.sh"]
 
 RUN systemctl enable mariadb && \
     systemctl enable munge && \
     systemctl enable slurmctld 
 
 CMD [ "/entrypoint.sh" ]
+
+RUN systemctl enable mariadb && \
+    systemctl enable munge && \
+    systemctl enable slurmctld
+
